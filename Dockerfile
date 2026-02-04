@@ -1,9 +1,14 @@
-FROM atendai/evolution-api:v2.1.1
+FROM atendai/evolution-api:v1.7.4
 
-# Variáveis de ambiente serão configuradas no Render
-ENV SERVER_PORT=8080
+# Configurações para rodar sem banco de dados
+ENV DATABASE_ENABLED=false \
+    DATABASE_PROVIDER=postgresql \
+    DATABASE_CONNECTION_URI="" \
+    DATABASE_SAVE_DATA_INSTANCE=false \
+    DATABASE_SAVE_DATA_NEW_MESSAGE=false \
+    DATABASE_SAVE_MESSAGE_UPDATE=false \
+    DATABASE_SAVE_DATA_CONTACTS=false \
+    DATABASE_SAVE_DATA_CHATS=false \
+    SERVER_PORT=8080
 
-# Expor porta
 EXPOSE 8080
-
-# Comando já está na imagem base
